@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת חנויות הקלפים בטלגרם: המדריך האינטראקטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A role-based SPA. Users select a role (Admin, Manager, Collector) via top navigation buttons. The main content area dynamically displays a tailored dashboard/flowchart for that role. This structure was chosen because the source describes distinct user journeys and permission levels, making a role-based view the most intuitive way to understand the entire ecosystem. It simplifies a complex process by allowing users to focus on one perspective at a time. -->
+    <!-- Visualization & Content Choices: 1. Collector Journey: Goal=Organize, Method=Interactive HTML/CSS Flowchart, Interaction=Click to expand details, Justification=Visually guides new users through a multi-step process. 2. Manager Discounts: Goal=Compare, Method=Chart.js Bar Chart, Interaction=Tooltip on hover, Justification=Clearly shows the value proposition of bulk buys. 3. Admin Stats: Goal=Inform, Method=Chart.js Doughnut/Line charts, Interaction=Tooltips, Justification=Provides a quick visual summary of system health, mimicking a real dashboard. All text content is organized into contextual 'cards' within each role's view to simulate an actual application interface. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #FDFBF8;
+            color: #3a3a3a;
+        }
+        .tab-btn {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-btn.active {
+            border-bottom-color: #4A90E2;
+            color: #4A90E2;
+            font-weight: 700;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #EAEAEA;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .flowchart-step {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 1.25rem 0;
+        }
+        .flowchart-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 23px;
+            top: 75px;
+            height: calc(100% - 60px);
+            width: 2px;
+            background-color: #4A90E2;
+            opacity: 0.3;
+        }
+        .flowchart-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4A90E2;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+         .chart-container {
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { 
+                height: 350px; 
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">מערכת חנויות הקלפים בטלגרם</h1>
+            <p class="text-lg text-gray-600">המדריך האינטראקטיבי לכל המשתתפים</p>
+        </header>
+
+        <nav class="flex justify-center border-b border-gray-200 mb-8">
+            <button class="tab-btn active text-lg py-3 px-6" data-tab="collector">אספן חדש</button>
+            <button class="tab-btn text-lg py-3 px-6" data-tab="manager">מנהל חנות</button>
+            <button class="tab-btn text-lg py-3 px-6" data-tab="admin">מנהל המפעל</button>
+        </nav>
+
+        <main>
+            <!-- Collector's View -->
+            <section id="collector" class="content-section active">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-semibold mb-2">ברוכים הבאים לעולם קלפי האספנות!</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">כאן תלמדו איך להתחיל את המסע שלכם, לרכוש את הקלף הראשון, ולהפוך לבעלי חנות קלפים משלכם. עקבו אחר השלבים הבאים:</p>
+                </div>
+                
+                <div class="max-w-2xl mx-auto">
+                    <div class="flowchart-step">
+                        <div class="flowchart-icon">1</div>
+                        <div class="mr-6">
+                            <h3 class="font-bold text-xl text-gray-800">מציאת חנות ורכישה ראשונית</h3>
+                            <p class="text-gray-600">הכל מתחיל בקישור שתקבלו לחנות קלפים. בחנות, תתבקשו לבצע "רכישה" של קלף מיוחד בעלות של 0 ש"ח כדי להתחיל את תהליך האימות.</p>
+                        </div>
+                    </div>
+                     <div class="flowchart-step">
+                        <div class="flowchart-icon">2</div>
+                        <div class="mr-6">
+                            <h3 class="font-bold text-xl text-gray-800">הוכחת תשלום</h3>
+                            <p class="text-gray-600">כדי לאמת את זהותכם, תצטרכו לשלוח צילום מסך של העברה בנקאית בסך 0 ש"ח. הבוט יציג לכם את פרטי החשבון המדויקים:</p>
+                            <div class="mt-2 p-3 bg-gray-100 rounded-lg text-sm text-gray-700">
+                                <strong>בנק:</strong> הפועלים (12) <br>
+                                <strong>סניף:</strong> כפר גנים (153) <br>
+                                <strong>חשבון:</strong> 73462 <br>
+                                <strong>מוטב:</strong> קאופמן צביקה
+                            </div>
+                        </div>
+                    </div>
+                     <div class="flowchart-step">
+                        <div class="flowchart-icon">3</div>
+                        <div class="mr-6">
+                            <h3 class="font-bold text-xl text-gray-800">המתנה לאישור</h3>
+                            <p class="text-gray-600">הוכחת התשלום שלכם נשלחת במקביל למנהל החנות ולמנהל המערכת הראשי ("מנהל המפעל"). אחד מהם יאשר אתכם באופן ידני.</p>
+                        </div>
+                    </div>
+                     <div class="flowchart-step">
+                        <div class="flowchart-icon">4</div>
+                        <div class="mr-6">
+                            <h3 class="font-bold text-xl text-gray-800">קבלת טוקן והפעלת החנות</h3>
+                            <p class="text-gray-600">לאחר האישור, מנהל המפעל ינפיק לכם טוקן (Token) ייחודי. בעזרת הטוקן הזה תוכלו ליצור בוט טלגרם שיהפוך לחנות הקלפים האישית שלכם!</p>
+                        </div>
+                    </div>
+                    <div class="flowchart-step">
+                        <div class="flowchart-icon">5</div>
+                        <div class="mr-6">
+                            <h3 class="font-bold text-xl text-gray-800">הצטרפות לקהילה</h3>
+                            <p class="text-gray-600">לאחר פתיחת החנות, תוכלו לפרסם את הקלף החדש שלכם בקבוצת ה-NFT הקהילתית, להציג את החנות החדשה שלכם, ולהתחיל לסחור!</p>
+                             <a href="https://t.me/+KLKB9-JdO85kNWJk" target="_blank" class="mt-2 inline-block text-blue-600 hover:underline">הצטרפו לקבוצה</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Manager's View -->
+            <section id="manager" class="content-section">
+                 <div class="text-center mb-10">
+                    <h2 class="text-2xl font-semibold mb-2">פאנל ניהול חנות</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">כמנהלי חנות, יש לכם שליטה מלאה על המלאי, המכירות וההגדרות. זהו מרכז הבקרה שלכם.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card md:col-span-2 lg:col-span-3">
+                         <h3 class="font-bold text-xl mb-3">ניהול גלריות וקלפים</h3>
+                         <p class="text-gray-600 mb-4">כאן תוכלו ליצור גלריות (קטגוריות) ולהעלות אליהן קלפים (תמונות). ניתן להעלות מספר תמונות במקביל. עבור כל קלף, תוכלו להגדיר כותרת, תיאור ומחיר. כמו כן, ניתן לערוך את כל הפרטים בכל עת.</p>
+                    </div>
+                    <div class="card">
+                         <h3 class="font-bold text-xl mb-3">מעקב מכירות ואישורים</h3>
+                         <p class="text-gray-600">כאשר לקוח רוכש מכם קלף, תקבלו הודעה עם הוכחת התשלום שלו. עליכם לבדוק ולאשר את התשלום כדי שהעסקה תושלם והקלף יועבר לבעלותו.</p>
+                    </div>
+                    <div class="card">
+                         <h3 class="font-bold text-xl mb-3">הגדרות תשלום</h3>
+                         <p class="text-gray-600">בפאנל הניהול תוכלו להוסיף, לערוך או להסיר את חשבונות הבנק או ארנק הטלגרם שאליהם תרצו לקבל תשלומים מהלקוחות שלכם.</p>
+                    </div>
+                    <div class="card">
+                         <h3 class="font-bold text-xl mb-3">פרסום בקהילה</h3>
+                         <p class="text-gray-600">לאחר כל מכירה מוצלחת, תהיה לכם אפשרות לפרסם את דבר המכירה בקבוצת ה-NFT הקהילתית בלחיצת כפתור, כדי לחגוג עם כולם ולהגביר את החשיפה.</p>
+                    </div>
+                    <div class="card md:col-span-2 lg:col-span-3">
+                         <h3 class="font-bold text-xl mb-3">מבצעים והנחות</h3>
+                         <p class="text-gray-600 mb-4">המערכת מעודדת רכישות גדולות ומציעה הנחות אוטומטיות ללקוחותיכם:</p>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li><strong>10% הנחה</strong> על רכישת גלריה שלמה.</li>
+                            <li><strong>25% הנחה</strong> על רכישת כל הקלפים בחנות.</li>
+                        </ul>
+                        <div class="chart-container mt-4">
+                            <canvas id="discountsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin's View -->
+            <section id="admin" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-semibold mb-2">פאנל ניהול המפעל (אדמין ראשי)</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">זהו מרכז השליטה של המערכת כולה. מכאן מנהלים את החנויות, הקבוצות והפיקוח הכללי.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                   <div class="card">
+                         <h3 class="font-bold text-xl mb-3">אישור חנויות חדשות</h3>
+                         <p class="text-gray-600">כאשר משתמש חדש מסיים את תהליך ההרשמה הראשונית, תקבלו בקשה לאישור. תפקידכם הוא לבדוק את הוכחת התשלום, ובמידה והכל תקין, להנפיק לו טוקן ייחודי דרך BotFactory כדי שיוכל ליצור את החנות שלו.</p>
+                    </div>
+                     <div class="card">
+                         <h3 class="font-bold text-xl mb-3">ניהול בוטים וקבוצות</h3>
+                         <p class="text-gray-600">בפאנל הראשי תוכלו לרשום בוטים חדשים, לקטלג אותם (למשל, "בוט חנות" או "בוט תפעולי"), ולשייך אותם לקבוצות הטלגרם הרלוונטיות לצורך פרסומים ועדכונים.</p>
+                    </div>
+                    <div class="card md:col-span-2">
+                        <h3 class="font-bold text-xl mb-3">פיקוח ופרסום בקהילה</h3>
+                        <p class="text-gray-600">הבוט הראשי שלכם הוא הלב של המערכת. הוא מציג משתמשים חדשים שמצטרפים ומאפשר לכם לאשר פרסומים של רכישות חדשות בקבוצת הקהילה. כל פרסום דורש אישור ידני שלכם כדי לשמור על סדר ואיכות.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">סטטיסטיקות מערכת</h3>
+                        <div class="chart-container">
+                            <canvas id="botsChart"></canvas>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <h3 class="font-bold text-xl mb-3">משתמשים חדשים</h3>
+                        <div class="chart-container">
+                            <canvas id="usersChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const sections = document.querySelectorAll('.content-section');
+            let discountsChart, botsChart, usersChart;
+
+            const chartConfigs = {
+                discounts: {
+                    type: 'bar',
+                    data: {
+                        labels: ['קלף בודד', 'גלריה שלמה', 'כל החנות'],
+                        datasets: [{
+                            label: 'אחוז מחיר לתשלום',
+                            data: [100, 90, 75],
+                            backgroundColor: ['#A0AEC0', '#63B3ED', '#48BB78'],
+                            borderColor: ['#718096', '#4299E1', '#38A169'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value + '%'
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.x !== null) {
+                                            label += context.parsed.x + '%';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                bots: {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['חנויות פעילות', 'בוטים תפעוליים'],
+                        datasets: [{
+                            label: 'סוגי בוטים',
+                            data: [12, 3],
+                            backgroundColor: ['#63B3ED', '#4FD1C5'],
+                            hoverOffset: 4
+                        }]
+                    },
+                     options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                         plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'התפלגות בוטים במערכת'
+                            }
+                        }
+                    }
+                },
+                users: {
+                     type: 'line',
+                    data: {
+                        labels: ['שבוע 1', 'שבוע 2', 'שבוע 3', 'שבוע 4', 'שבוע 5'],
+                        datasets: [{
+                            label: 'מצטרפים חדשים',
+                            data: [3, 5, 4, 8, 10],
+                            fill: false,
+                            borderColor: '#4A90E2',
+                            tension: 0.1
+                        }]
+                    },
+                     options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                         plugins: {
+                             legend: {
+                                display: false
+                             },
+                             title: {
+                                 display: true,
+                                 text: 'מצטרפים חדשים לפי שבוע'
+                             }
+                         }
+                    }
+                }
+            };
+            
+            function renderChart(chartId, config) {
+                const ctx = document.getElementById(chartId).getContext('2d');
+                return new Chart(ctx, config);
+            }
+
+            function destroyCharts() {
+                if (discountsChart) discountsChart.destroy();
+                if (botsChart) botsChart.destroy();
+                if (usersChart) usersChart.destroy();
+            }
+
+            function handleTabClick(tab) {
+                destroyCharts();
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const target = tab.getAttribute('data-tab');
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    if (s.id === target) {
+                        s.classList.add('active');
+                    }
+                });
+
+                if (target === 'manager') {
+                   discountsChart = renderChart('discountsChart', chartConfigs.discounts);
+                } else if (target === 'admin') {
+                   botsChart = renderChart('botsChart', chartConfigs.bots);
+                   usersChart = renderChart('usersChart', chartConfigs.users);
+                }
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => handleTabClick(tab));
+            });
+            
+        });
+    </script>
+</body>
+</html>
