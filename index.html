@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מערכת חנויות הקלפים בטלגרם: המדריך האינטראקטיבי</title>
+    <title>ברוכים הבאים לכרטיס חנות שלי ב NIFTII!! משחק החנויות שמשגע את ישראל!!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,9 +12,11 @@
     
     <meta property="og:title" content="המדריך האינטראקטיבי למשחק קלפי האספנות" />
     <meta property="og:description" content="התחילו את המסע שלכם בעולם קלפי האספנות של טלגרם ופתחו חנות משלכם!" />
+    <!-- Updated OG Image URL to be an absolute path -->
     <meta property="og:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
     <meta property="og:url" content="https://osifeu-prog.github.io/Cardgame/" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
     
     <!-- Chosen Palette: Warm Neutrals -->
     <!-- Application Structure Plan: A role-based SPA. Users select a role (Admin, Manager, Collector) via top navigation buttons. The main content area dynamically displays a tailored dashboard/flowchart for that role. This structure was chosen because the source describes distinct user journeys and permission levels, making a role-based view the most intuitive way to understand the entire ecosystem. It simplifies a complex process by allowing users to focus on one perspective at a time. -->
@@ -83,7 +85,7 @@
             flex-shrink: 0;
             z-index: 10;
         }
-         .chart-container {
+        .chart-container {
             position: relative; 
             width: 100%; 
             max-width: 600px; 
@@ -102,7 +104,7 @@
 <body class="antialiased">
     <div class="container mx-auto p-4 sm:p-6 md:p-8">
         <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">מערכת חנויות הקלפים בטלגרם</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">ברוכים הבאים לכרטיס חנות שלי ב NIFTII!! משחק החנויות שמשגע את ישראל!!</h1>
             <p class="text-lg text-gray-600">המדריך האינטראקטיבי לכל המשתתפים</p>
         </header>
 
@@ -128,27 +130,45 @@
                             <p class="text-gray-600">הכל מתחיל בקישור שתקבלו לחנות קלפים. בחנות, תתבקשו לבצע "רכישה" של קלף מיוחד בעלות של 249 ש"ח כדי להתחיל את תהליך האימות.</p>
                         </div>
                     </div>
-                     <div class="flowchart-step">
+
+                    <div class="flowchart-step">
                         <div class="flowchart-icon">2</div>
                         <div class="mr-6">
                             <h3 class="font-bold text-xl text-gray-800">הוכחת תשלום</h3>
-                            <p class="text-gray-600">כדי לאמת את זהותכם, תצטרכו לשלוח צילום מסך של העברה בנקאית בסך 249 ש"ח. הבוט יציג לכם את פרטי החשבון המדויקים:</p>
-                            <div class="mt-2 p-3 bg-gray-100 rounded-lg text-sm text-gray-700">
-                                <strong>בנק:</strong> הפועלים (12) <br>
-                                <strong>סניף:</strong> כפר גנים (153) <br>
-                                <strong>חשבון:</strong> 73462 <br>
-                                <strong>מוטב:</strong> קאופמן צביקה
+                            <p class="text-gray-600">כדי לאמת את זהותכם, תצטרכו לשלוח צילום מסך של העברת התשלום. הבוט יציג לכם את פרטי החשבון/ארנק המדויקים:</p>
+                            <div class="mt-2 p-4 bg-gray-100 rounded-lg text-sm text-gray-700 space-y-4">
+                                <div class="p-3 bg-white rounded-lg shadow-sm">
+                                    <h4 class="font-bold text-base mb-2">תשלום ב-TON</h4>
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        ניתן להעביר ישירות דרך ארנק הטלגרם שלכם. העברה מתבצעת על רשת TON.
+                                    </p>
+                                    <div class="flex flex-col items-center">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" 
+                                             alt="TON QR Code" 
+                                             class="rounded-lg shadow-md mb-2">
+                                        <div class="break-all text-xs text-gray-500 font-mono text-center">
+                                            UQDhfyUPSJ8x9xnoeccTl55PEny7zUvDW8UabZ7PdDo52noF
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">
+                                    <h4 class="font-bold text-base mb-2">העברה בנקאית</h4>
+                                    <strong>שם מוטב:</strong> צביקה קאופמן <br>
+                                    <strong>בנק:</strong> הפועלים (12) <br>
+                                    <strong>סניף:</strong> כפר גנים (153) <br>
+                                    <strong>חשבון:</strong> 73462
+                                </div>
                             </div>
                         </div>
                     </div>
-                     <div class="flowchart-step">
+                    <div class="flowchart-step">
                         <div class="flowchart-icon">3</div>
                         <div class="mr-6">
                             <h3 class="font-bold text-xl text-gray-800">המתנה לאישור</h3>
                             <p class="text-gray-600">הוכחת התשלום שלכם נשלחת במקביל למנהל החנות ולמנהל המערכת הראשי ("מנהל המפעל"). אחד מהם יאשר אתכם באופן ידני.</p>
                         </div>
                     </div>
-                     <div class="flowchart-step">
+                    <div class="flowchart-step">
                         <div class="flowchart-icon">4</div>
                         <div class="mr-6">
                             <h3 class="font-bold text-xl text-gray-800">קבלת טוקן והפעלת החנות</h3>
@@ -160,38 +180,72 @@
                         <div class="mr-6">
                             <h3 class="font-bold text-xl text-gray-800">הצטרפות לקהילה</h3>
                             <p class="text-gray-600">לאחר פתיחת החנות, תוכלו לפרסם את הקלף החדש שלכם בקבוצת ה-NFT הקהילתית, להציג את החנות החדשה שלכם, ולהתחיל לסחור!</p>
-                             <a href="https://t.me/+KLKB9-JdO85kNWJk" target="_blank" class="mt-2 inline-block text-blue-600 hover:underline">הצטרפו לקבוצה</a>
+                            <a href="https://t.me/+HIzvM8sEgh1kNWY0" target="_blank" class="mt-2 inline-block text-blue-600 hover:underline">הצטרפו לקבוצה</a>
                         </div>
                     </div>
                 </div>
-            </section>
+
+                <!-- New section for unique user images -->
+                <div class="card p-6 mt-8">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-700 text-center">גלריית תמונות ייחודיות לרכישה</h2>
+                    <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">
+                        אלו הן התמונות הייחודיות שתוכלו לרכוש. לאחר אימות התשלום, הן יועברו לבעלותכם, ותוכלו למכור אותן ולהרוויח כסף מהרכישה הראשונה!
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <img src="0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
+                             alt="תמונה ייחודית 1" 
+                             class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                        <img src="b4048d9a-0341-4b7b-84c8-509873947aba.jpg" 
+                             alt="תמונה ייחודית 2" 
+                             class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                        <img src="c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg" 
+                             alt="תמונה ייחודית 3" 
+                             class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+
+                <!-- Contact Section with QR - New Section -->
+                <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-200 mb-8 text-center mt-8 card">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-700">צור קשר</h2>
+                    <p class="text-sm text-gray-600 mb-4 max-w-lg mx-auto">
+                        לכל שאלה, תמיכה או מידע נוסף, אתם יכולים ליצור איתנו קשר.
+                        <br>
+                        <span class="font-bold text-indigo-700">ניתן לסרוק את קוד ה-QR כדי להגיע לארנק TON.</span>
+                    </p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" alt="TON QR Code" class="mx-auto rounded-lg shadow-md mb-4">
+                    <ul class="text-gray-700 text-base">
+                        <li class="mb-2"><strong>אימייל:</strong> 00506861837p@gmail.com</li>
+                        <li><strong>טלפון:</strong> 0506861837</li>
+                    </ul>
+                </div>
+            </section>osif.e.u@gmail.com
 
             <!-- Manager's View -->
             <section id="manager" class="content-section">
-                 <div class="text-center mb-10">
+                <div class="text-center mb-10">
                     <h2 class="text-2xl font-semibold mb-2">פאנל ניהול חנות</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">כמנהלי חנות, יש לכם שליטה מלאה על המלאי, המכירות וההגדרות. זהו מרכז הבקרה שלכם.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="card md:col-span-2 lg:col-span-3">
-                         <h3 class="font-bold text-xl mb-3">ניהול גלריות וקלפים</h3>
-                         <p class="text-gray-600 mb-4">כאן תוכלו ליצור גלריות (קטגוריות) ולהעלות אליהן קלפים (תמונות). ניתן להעלות מספר תמונות במקביל. עבור כל קלף, תוכלו להגדיר כותרת, תיאור ומחיר. כמו כן, ניתן לערוך את כל הפרטים בכל עת.</p>
+                        <h3 class="font-bold text-xl mb-3">ניהול גלריות וקלפים</h3>
+                        <p class="text-gray-600 mb-4">כאן תוכלו ליצור גלריות (קטגוריות) ולהעלות אליהן קלפים (תמונות). ניתן להעלות מספר תמונות במקביל. עבור כל קלף, תוכלו להגדיר כותרת, תיאור ומחיר. כמו כן, ניתן לערוך את כל הפרטים בכל עת.</p>
                     </div>
                     <div class="card">
-                         <h3 class="font-bold text-xl mb-3">מעקב מכירות ואישורים</h3>
-                         <p class="text-gray-600">כאשר לקוח רוכש מכם קלף, תקבלו הודעה עם הוכחת התשלום שלו. עליכם לבדוק ולאשר את התשלום כדי שהעסקה תושלם והקלף יועבר לבעלותו.</p>
+                        <h3 class="font-bold text-xl mb-3">מעקב מכירות ואישורים</h3>
+                        <p class="text-gray-600">כאשר לקוח רוכש מכם קלף, תקבלו הודעה עם הוכחת התשלום שלו. עליכם לבדוק ולאשר את התשלום כדי שהעסקה תושלם והקלף יועבר לבעלותו.</p>
                     </div>
                     <div class="card">
-                         <h3 class="font-bold text-xl mb-3">הגדרות תשלום</h3>
-                         <p class="text-gray-600">בפאנל הניהול תוכלו להוסיף, לערוך או להסיר את חשבונות הבנק או ארנק הטלגרם שאליהם תרצו לקבל תשלומים מהלקוחות שלכם.</p>
+                        <h3 class="font-bold text-xl mb-3">הגדרות תשלום</h3>
+                        <p class="text-gray-600">בפאנל הניהול תוכלו להוסיף, לערוך או להסיר את חשבונות הבנק או ארנק הטלגרם שאליהם תרצו לקבל תשלומים מהלקוחות שלכם.</p>
                     </div>
                     <div class="card">
-                         <h3 class="font-bold text-xl mb-3">פרסום בקהילה</h3>
-                         <p class="text-gray-600">לאחר כל מכירה מוצלחת, תהיה לכם אפשרות לפרסם את דבר המכירה בקבוצת ה-NFT הקהילתית בלחיצת כפתור, כדי לחגוג עם כולם ולהגביר את החשיפה.</p>
+                        <h3 class="font-bold text-xl mb-3">פרסום בקהילה</h3>
+                        <p class="text-gray-600">לאחר כל מכירה מוצלחת, תהיה לכם אפשרות לפרסם את דבר המכירה בקבוצת ה-NFT הקהילתית בלחיצת כפתור, כדי לחגוג עם כולם ולהגביר את החשיפה.</p>
                     </div>
                     <div class="card md:col-span-2 lg:col-span-3">
-                         <h3 class="font-bold text-xl mb-3">מבצעים והנחות</h3>
-                         <p class="text-gray-600 mb-4">המערכת מעודדת רכישות גדולות ומציעה הנחות אוטומטיות ללקוחותיכם:</p>
+                        <h3 class="font-bold text-xl mb-3">מבצעים והנחות</h3>
+                        <p class="text-gray-600 mb-4">המערכת מעודדת רכישות גדולות ומציעה הנחות אוטומטיות ללקוחותיכם:</p>
                         <ul class="list-disc list-inside text-gray-600">
                             <li><strong>10% הנחה</strong> על רכישת גלריה שלמה.</li>
                             <li><strong>25% הנחה</strong> על רכישת כל הקלפים בחנות.</li>
@@ -210,13 +264,13 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">זהו מרכז השליטה של המערכת כולה. מכאן מנהלים את החנויות, הקבוצות והפיקוח הכללי.</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
-                   <div class="card">
-                         <h3 class="font-bold text-xl mb-3">אישור חנויות חדשות</h3>
-                         <p class="text-gray-600">כאשר משתמש חדש מסיים את תהליך ההרשמה הראשונית, תקבלו בקשה לאישור. תפקידכם הוא לבדוק את הוכחת התשלום, ובמידה והכל תקין, להנפיק לו טוקן ייחודי דרך BotFactory כדי שיוכל ליצור את החנות שלו.</p>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">אישור חנויות חדשות</h3>
+                        <p class="text-gray-600">כאשר משתמש חדש מסיים את תהליך ההרשמה הראשונית, תקבלו בקשה לאישור. תפקידכם הוא לבדוק את הוכחת התשלום, ובמידה והכל תקין, להנפיק לו טוקן ייחודי דרך BotFactory כדי שיוכל ליצור את החנות שלו.</p>
                     </div>
-                     <div class="card">
-                         <h3 class="font-bold text-xl mb-3">ניהול בוטים וקבוצות</h3>
-                         <p class="text-gray-600">בפאנל הראשי תוכלו לרשום בוטים חדשים, לקטלג אותם (למשל, "בוט חנות" או "בוט תפעולי"), ולשייך אותם לקבוצות הטלגרם הרלוונטיות לצורך פרסומים ועדכונים.</p>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">ניהול בוטים וקבוצות</h3>
+                        <p class="text-gray-600">בפאנל הראשי תוכלו לרשום בוטים חדשים, לקטלג אותם (למשל, "בוט חנות" או "בוט תפעולי"), ולשייך אותם לקבוצות הטלגרם הרלוונטיות לצורך פרסומים ועדכונים.</p>
                     </div>
                     <div class="card md:col-span-2">
                         <h3 class="font-bold text-xl mb-3">פיקוח ופרסום בקהילה</h3>
@@ -228,7 +282,7 @@
                             <canvas id="botsChart"></canvas>
                         </div>
                     </div>
-                     <div class="card">
+                    <div class="card">
                         <h3 class="font-bold text-xl mb-3">משתמשים חדשים</h3>
                         <div class="chart-container">
                             <canvas id="usersChart"></canvas>
@@ -305,10 +359,10 @@
                             hoverOffset: 4
                         }]
                     },
-                     options: {
+                    options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                         plugins: {
+                        plugins: {
                             legend: {
                                 position: 'top',
                             },
@@ -320,7 +374,7 @@
                     }
                 },
                 users: {
-                     type: 'line',
+                    type: 'line',
                     data: {
                         labels: ['שבוע 1', 'שבוע 2', 'שבוע 3', 'שבוע 4', 'שבוע 5'],
                         datasets: [{
@@ -331,7 +385,7 @@
                             tension: 0.1
                         }]
                     },
-                     options: {
+                    options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
@@ -339,15 +393,15 @@
                                 beginAtZero: true
                             }
                         },
-                         plugins: {
-                             legend: {
+                        plugins: {
+                            legend: {
                                 display: false
-                             },
-                             title: {
-                                 display: true,
-                                 text: 'מצטרפים חדשים לפי שבוע'
-                             }
-                         }
+                            },
+                            title: {
+                                display: true,
+                                text: 'מצטרפים חדשים לפי שבוע'
+                            }
+                        }
                     }
                 }
             };
@@ -378,10 +432,10 @@
                 });
 
                 if (target === 'manager') {
-                   discountsChart = renderChart('discountsChart', chartConfigs.discounts);
+                    discountsChart = renderChart('discountsChart', chartConfigs.discounts);
                 } else if (target === 'admin') {
-                   botsChart = renderChart('botsChart', chartConfigs.bots);
-                   usersChart = renderChart('usersChart', chartConfigs.users);
+                    botsChart = renderChart('botsChart', chartConfigs.bots);
+                    usersChart = renderChart('usersChart', chartConfigs.users);
                 }
             }
 
