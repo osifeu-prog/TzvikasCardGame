@@ -10,10 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <!-- Open Graph & Twitter Meta Tags for Social Sharing -->
+    <!-- Updated OG Image URL to be an absolute path -->
     <meta property="og:title" content="המדריך האינטראקטיבי למשחק קלפי האספנות" />
     <meta property="og:description" content="התחילו את המסע שלכם בעולם קלפי האספנות של טלגרם ופתחו חנות משלכם!" />
-    <!-- Updated OG Image URL to be an absolute path -->
     <meta property="og:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
+    <!-- Added explicit dimensions to improve rendering on social media -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://osifeu-prog.github.io/Cardgame/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
@@ -150,6 +154,18 @@
             position: relative;
             cursor: pointer;
         }
+        .share-btn {
+            background-color: #4A90E2;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 9999px; /* Fully rounded */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .share-btn:hover {
+            background-color: #357ABD;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -240,6 +256,22 @@
                     </div>
                 </div>
 
+                <!-- New section for social sharing -->
+                <div class="card p-6 mt-8 text-center">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-700">שתפו את העמוד הזה!</h2>
+                    <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+                        עזרו לנו להפיץ את הבשורה! כאשר תשתפו את הקישור הזה, התמונה הבאה תוצג אוטומטית.
+                    </p>
+                    <div class="w-full max-w-md mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                        <img src="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" 
+                             alt="תמונה לשיתוף חברתי" 
+                             class="w-full h-auto object-cover">
+                    </div>
+                    <button id="shareButton" class="share-btn mt-6">שתפו את העמוד</button>
+                    <p id="share-message" class="text-sm mt-4 text-gray-500 hidden">הקישור הועתק ללוח ההדבקה!</p>
+                </div>
+                <!-- End of new social sharing section -->
+            
                 <!-- New section for unique user images -->
                 <div class="card p-6 mt-8">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-700 text-center">גלריית תמונות ייחודיות לרכישה</h2>
@@ -248,22 +280,22 @@
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Added price and click functionality to each image -->
-                        <div class="image-container" onclick="openModal('0533af5c-a0c8-4197-b797-662d1b154012.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
-                                 alt="תמונה ייחודית 1" 
-                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/S1/0533af5c-a0c8-4197-b797-662d1b154012.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
+                            <img src="https://osifeu-prog.github.io/Cardgame/S1/0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
+                                alt="תמונה ייחודית 1" 
+                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
                             <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">36 ש"ח</div>
                         </div>
-                        <div class="image-container" onclick="openModal('b4048d9a-0341-4b7b-84c8-509873947aba.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="b4048d9a-0341-4b7b-84c8-509873947aba.jpg" 
-                                 alt="תמונה ייחודית 2" 
-                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
+                            <img src="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" 
+                                alt="תמונה ייחודית 2" 
+                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
                             <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">18 ש"ח</div>
                         </div>
-                        <div class="image-container" onclick="openModal('c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg" 
-                                 alt="תמונה ייחודית 3" 
-                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/S1/c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
+                            <img src="https://osifeu-prog.github.io/Cardgame/S1/c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg" 
+                                alt="תמונה ייחודית 3" 
+                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
                             <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">54 ש"ח</div>
                         </div>
                     </div>
@@ -279,11 +311,11 @@
                     </p>
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" alt="TON QR Code" class="mx-auto rounded-lg shadow-md mb-4">
                     <ul class="text-gray-700 text-base">
-                        <li class="mb-2"><strong>אימייל:</strong>kaufmanungar@gmail.com</li>
+                        <li class="mb-2"><strong>אימייל:</strong> <a href="mailto:osif.e.u@gmail.com" class="text-blue-600 hover:underline">osif.e.u@gmail.com</a></li>
                         <li><strong>טלפון:</strong> 0546671882</li>
                     </ul>
                 </div>
-            </section>osif.e.u@gmail.com
+            </section>
 
             <!-- Manager's View -->
             <section id="manager" class="content-section">
@@ -378,6 +410,10 @@
             const modalImage = document.getElementById('modal-image');
             const modalDescription = document.getElementById('modal-description');
 
+            // Social sharing elements
+            const shareButton = document.getElementById('shareButton');
+            const shareMessage = document.getElementById('share-message');
+
             // Function to open the modal with the specified image and description
             window.openModal = function(imageSrc, description) {
                 modalImage.src = imageSrc;
@@ -396,6 +432,40 @@
                     closeModal();
                 }
             }
+
+            // Social sharing logic
+            shareButton.addEventListener('click', async () => {
+                const shareData = {
+                    title: document.title,
+                    text: document.querySelector('meta[property="og:description"]').content,
+                    url: window.location.href,
+                };
+                
+                try {
+                    // Use Web Share API if supported
+                    if (navigator.share) {
+                        await navigator.share(shareData);
+                    } else {
+                        // Fallback for browsers that do not support Web Share API
+                        await navigator.clipboard.writeText(shareData.url);
+                        shareMessage.classList.remove('hidden');
+                        setTimeout(() => {
+                            shareMessage.classList.add('hidden');
+                        }, 3000);
+                    }
+                } catch (error) {
+                    // Fallback to clipboard copy on error or no support
+                    try {
+                        await navigator.clipboard.writeText(shareData.url);
+                        shareMessage.classList.remove('hidden');
+                        setTimeout(() => {
+                            shareMessage.classList.add('hidden');
+                        }, 3000);
+                    } catch (err) {
+                        console.error('Copy to clipboard failed:', err);
+                    }
+                }
+            });
 
             const chartConfigs = {
                 discounts: {
