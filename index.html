@@ -10,22 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Open Graph & Twitter Meta Tags for Social Sharing -->
-    <!-- Updated OG Image URL to be an absolute path -->
     <meta property="og:title" content="המדריך האינטראקטיבי למשחק קלפי האספנות" />
     <meta property="og:description" content="התחילו את המסע שלכם בעולם קלפי האספנות של טלגרם ופתחו חנות משלכם!" />
     <meta property="og:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
-    <!-- Added explicit dimensions to improve rendering on social media -->
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://osifeu-prog.github.io/Cardgame/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
     
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: A role-based SPA. Users select a role (Admin, Manager, Collector) via top navigation buttons. The main content area dynamically displays a tailored dashboard/flowchart for that role. This structure was chosen because the source describes distinct user journeys and permission levels, making a role-based view the most intuitive way to understand the entire ecosystem. It simplifies a complex process by allowing users to focus on one perspective at a time. -->
-    <!-- Visualization & Content Choices: 1. Collector Journey: Goal=Organize, Method=Interactive HTML/CSS Flowchart, Interaction=Click to expand details, Justification=Visually guides new users through a multi-step process. 2. Manager Discounts: Goal=Compare, Method=Chart.js Bar Chart, Interaction=Tooltip on hover, Justification=Clearly shows the value proposition of bulk buys. 3. Admin Stats: Goal=Inform, Method=Chart.js Doughnut/Line charts, Interaction=Tooltips, Justification=Provides a quick visual summary of system health, mimicking a real dashboard. All text content is organized into contextual 'cards' within each role's view to simulate an actual application interface. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Assistant', sans-serif;
@@ -182,7 +175,6 @@
         </nav>
 
         <main>
-            <!-- Collector's View -->
             <section id="collector" class="content-section active">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl font-semibold mb-2">ברוכים הבאים לעולם קלפי האספנות!</h2>
@@ -193,7 +185,6 @@
                     <div class="flowchart-step">
                         <div class="flowchart-icon">1</div>
                         <div class="mr-6">
-                            <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">רכישת קלף ברכישה ראשונית.</h3>
                             <p class="text-gray-600">הכל מתחיל בקישור שתקבלו לחנות הקלפים שלי. בחנות, תתבקשו לבצע רכישה של קלף מיוחד ויחודי רק לכם, NFT, בעלות של 36 ש"ח כדי להתחיל את תהליך האימות.</p>
                         </div>
@@ -232,7 +223,6 @@
                     <div class="flowchart-step">
                         <div class="flowchart-icon">3</div>
                         <div class="mr-6">
-                            <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">המתנה לאישור</h3>
                             <p class="text-gray-600">הוכחת התשלום שלכם נשלחת במקביל למנהל החנות ולמנהל המערכת הראשי ("מנהל המפעל") כדי לאשר את ההצמדה של הקבלה שלכם לקלף שלכם.</p>
                         </div>
@@ -240,7 +230,6 @@
                     <div class="flowchart-step">
                         <div class="flowchart-icon">4</div>
                         <div class="mr-6">
-                            <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">קבלת טוקן והפעלת החנות</h3>
                             <p class="text-gray-600">לאחר האישור, מנהל המפעל ינפיק לכם טוקן ייחודי (NFT) שיוצמד לכקבלה הן לבעל החנות ממנו רכשתם, והן לכם, עם המחיר בו רכשתם והקלף היחודי שרכשתם.</p>
                         </div>
@@ -248,7 +237,6 @@
                     <div class="flowchart-step">
                         <div class="flowchart-icon">5</div>
                         <div class="mr-6">
-                            <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">הצטרפות לקהילה</h3>
                             <p class="text-gray-600">לאחר פתיחת החנות, תוכלו לפרסם את הקלף החדש שלכם בקבוצת ה-NFT הקהילתית, להציג את הרכש היחודי החדש שלכם, ולהתחיל לסחור עם חברים ועם הקהילה!</p>
                             <a href="https://t.me/+HIzvM8sEgh1kNWY0" target="_blank" class="mt-2 inline-block text-blue-600 hover:underline">הצטרפו לקבוצה</a>
@@ -256,7 +244,6 @@
                     </div>
                 </div>
 
-                <!-- New section for social sharing -->
                 <div class="card p-6 mt-8 text-center">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-700">שתפו את העמוד הזה!</h2>
                     <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
@@ -270,16 +257,12 @@
                     <button id="shareButton" class="share-btn mt-6">שתפו את העמוד</button>
                     <p id="share-message" class="text-sm mt-4 text-gray-500 hidden">הקישור הועתק ללוח ההדבקה!</p>
                 </div>
-                <!-- End of new social sharing section -->
-            
-                <!-- New section for unique user images -->
                 <div class="card p-6 mt-8">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-700 text-center">גלריית תמונות ייחודיות לרכישה</h2>
                     <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">
                         אלו הן התמונות הייחודיות שתוכלו לרכוש. לאחר אימות התשלום, הן יועברו לבעלותכם, ותוכלו למכור אותן ולהרוויח כסף מהרכישה הראשונה!
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Added price and click functionality to each image -->
                         <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/S1/0533af5c-a0c8-4197-b797-662d1b154012.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
                             <img src="https://osifeu-prog.github.io/Cardgame/S1/0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
                                 alt="תמונה ייחודית 1" 
@@ -301,7 +284,6 @@
                     </div>
                 </div>
 
-                <!-- Contact Section with QR - New Section -->
                 <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-200 mb-8 text-center mt-8 card">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-700">צור קשר</h2>
                     <p class="text-sm text-gray-600 mb-4 max-w-lg mx-auto">
@@ -317,7 +299,6 @@
                 </div>
             </section>
 
-            <!-- Manager's View -->
             <section id="manager" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl font-semibold mb-2">פאנל ניהול חנות</h2>
@@ -354,7 +335,6 @@
                 </div>
             </section>
 
-            <!-- Admin's View -->
             <section id="admin" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl font-semibold mb-2">פאנל ניהול המפעל (אדמין ראשי)</h2>
@@ -390,7 +370,6 @@
         </main>
     </div>
 
-    <!-- The Image Modal -->
     <div id="image-modal">
         <div id="modal-content" class="p-4">
             <span class="close-button" onclick="closeModal()">&times;</span>
@@ -611,11 +590,12 @@
                 tab.addEventListener('click', () => handleTabClick(tab));
             });
 
-            // Set initial active tab and render its content
-            const initialTab = document.querySelector('.tab-btn.active');
-            if (initialTab) {
-                handleTabClick(initialTab);
-            }
+            // Initial chart rendering
+            renderChart('discountsChart', chartConfigs.discounts);
+            renderChart('botsChart', chartConfigs.bots);
+            renderChart('usersChart', chartConfigs.users);
+            
+            handleTabClick(document.querySelector('.tab-btn.active'));
         });
     </script>
 </body>
