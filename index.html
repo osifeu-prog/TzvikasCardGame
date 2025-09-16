@@ -12,16 +12,11 @@
     
     <meta property="og:title" content="המדריך האינטראקטיבי למשחק קלפי האספנות" />
     <meta property="og:description" content="התחילו את המסע שלכם בעולם קלפי האספנות של טלגרם ופתחו חנות משלכם!" />
-    <!-- Updated OG Image URL to be an absolute path -->
     <meta property="og:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
     <meta property="og:url" content="https://osifeu-prog.github.io/Cardgame/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
     
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: A role-based SPA. Users select a role (Admin, Manager, Collector) via top navigation buttons. The main content area dynamically displays a tailored dashboard/flowchart for that role. This structure was chosen because the source describes distinct user journeys and permission levels, making a role-based view the most intuitive way to understand the entire ecosystem. It simplifies a complex process by allowing users to focus on one perspective at a time. -->
-    <!-- Visualization & Content Choices: 1. Collector Journey: Goal=Organize, Method=Interactive HTML/CSS Flowchart, Interaction=Click to expand details, Justification=Visually guides new users through a multi-step process. 2. Manager Discounts: Goal=Compare, Method=Chart.js Bar Chart, Interaction=Tooltip on hover, Justification=Clearly shows the value proposition of bulk buys. 3. Admin Stats: Goal=Inform, Method=Chart.js Doughnut/Line charts, Interaction=Tooltips, Justification=Provides a quick visual summary of system health, mimicking a real dashboard. All text content is organized into contextual 'cards' within each role's view to simulate an actual application interface. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Assistant', sans-serif;
@@ -99,7 +94,6 @@
                 height: 350px; 
             }
         }
-        /* New styles for image modal */
         #image-modal {
             display: none;
             position: fixed;
@@ -166,7 +160,6 @@
         </nav>
 
         <main>
-            <!-- Collector's View -->
             <section id="collector" class="content-section active">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl font-semibold mb-2">ברוכים הבאים לעולם קלפי האספנות!</h2>
@@ -177,7 +170,6 @@
                     <div class="flowchart-step">
                         <div class="flowchart-icon">1</div>
                         <div class="mr-6">
-                            <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">רכישת קלף ברכישה ראשונית.</h3>
                             <p class="text-gray-600">הכל מתחיל בקישור שתקבלו לחנות הקלפים שלי. בחנות, תתבקשו לבצע רכישה של קלף מיוחד ויחודי רק לכם, NFT, בעלות של 36 ש"ח כדי להתחיל את תהליך האימות.</p>
                         </div>
@@ -196,8 +188,8 @@
                                     </p>
                                     <div class="flex flex-col items-center">
                                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" 
-                                             alt="TON QR Code" 
-                                             class="rounded-lg shadow-md mb-2">
+                                            alt="TON QR Code" 
+                                            class="rounded-lg shadow-md mb-2">
                                         <div class="break-all text-xs text-gray-500 font-mono text-center">
                                             UQDhfyUPSJ8x9xnoeccTl55PEny7zUvDW8UabZ7PdDo52noF
                                         </div>
@@ -216,7 +208,6 @@
                     <div class="flowchart-step">
                         <div class="flowchart-icon">3</div>
                         <div class="mr-6">
-                            <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">המתנה לאישור</h3>
                             <p class="text-gray-600">הוכחת התשלום שלכם נשלחת במקביל למנהל החנות ולמנהל המערכת הראשי ("מנהל המפעל") כדי לאשר את ההצמדה של הקבלה שלכם לקלף שלכם.</p>
                         </div>
@@ -224,7 +215,6 @@
                     <div class="flowchart-step">
                         <div class="flowchart-icon">4</div>
                         <div class="mr-6">
-                            <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">קבלת טוקן והפעלת החנות</h3>
                             <p class="text-gray-600">לאחר האישור, מנהל המפעל ינפיק לכם טוקן ייחודי (NFT) שיוצמד לכקבלה הן לבעל החנות ממנו רכשתם, והן לכם, עם המחיר בו רכשתם והקלף היחודי שרכשתם.</p>
                         </div>
@@ -232,7 +222,6 @@
                     <div class="flowchart-step">
                         <div class="flowchart-icon">5</div>
                         <div class="mr-6">
-                            <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">הצטרפות לקהילה</h3>
                             <p class="text-gray-600">לאחר פתיחת החנות, תוכלו לפרסם את הקלף החדש שלכם בקבוצת ה-NFT הקהילתית, להציג את הרכש היחודי החדש שלכם, ולהתחיל לסחור עם חברים ועם הקהילה!</p>
                             <a href="https://t.me/+HIzvM8sEgh1kNWY0" target="_blank" class="mt-2 inline-block text-blue-600 hover:underline">הצטרפו לקבוצה</a>
@@ -240,36 +229,33 @@
                     </div>
                 </div>
 
-                <!-- New section for unique user images -->
                 <div class="card p-6 mt-8">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-700 text-center">גלריית תמונות ייחודיות לרכישה</h2>
                     <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">
                         אלו הן התמונות הייחודיות שתוכלו לרכוש. לאחר אימות התשלום, הן יועברו לבעלותכם, ותוכלו למכור אותן ולהרוויח כסף מהרכישה הראשונה!
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Added price and click functionality to each image -->
-                        <div class="image-container" onclick="openModal('0533af5c-a0c8-4197-b797-662d1b154012.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
-                                 alt="תמונה ייחודית 1" 
-                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/0533af5c-a0c8-4197-b797-662d1b154012.jpg', 'תיאור של הקלף הייחודי 1')">
+                            <img src="https://osifeu-prog.github.io/Cardgame/0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
+                                alt="תמונה ייחודית 1" 
+                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
                             <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">36 ש"ח</div>
                         </div>
-                        <div class="image-container" onclick="openModal('b4048d9a-0341-4b7b-84c8-509873947aba.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="b4048d9a-0341-4b7b-84c8-509873947aba.jpg" 
-                                 alt="תמונה ייחודית 2" 
-                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/b4048d9a-0341-4b7b-84c8-509873947aba.jpg', 'תיאור של הקלף הייחודי 2')">
+                            <img src="https://osifeu-prog.github.io/Cardgame/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" 
+                                alt="תמונה ייחודית 2" 
+                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
                             <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">18 ש"ח</div>
                         </div>
-                        <div class="image-container" onclick="openModal('c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg" 
-                                 alt="תמונה ייחודית 3" 
-                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg', 'תיאור של הקלף הייחודי 3')">
+                            <img src="https://osifeu-prog.github.io/Cardgame/c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg" 
+                                alt="תמונה ייחודית 3" 
+                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
                             <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">54 ש"ח</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Section with QR - New Section -->
                 <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-200 mb-8 text-center mt-8 card">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-700">צור קשר</h2>
                     <p class="text-sm text-gray-600 mb-4 max-w-lg mx-auto">
@@ -279,13 +265,12 @@
                     </p>
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" alt="TON QR Code" class="mx-auto rounded-lg shadow-md mb-4">
                     <ul class="text-gray-700 text-base">
-                        <li class="mb-2"><strong>אימייל:</strong>00506861837p@gmail.com</li>
+                        <li class="mb-2"><strong>אימייל:</strong> osif.e.u@gmail.com</li>
                         <li><strong>טלפון:</strong> 0506861837</li>
                     </ul>
                 </div>
-            </section>osif.e.u@gmail.com
+            </section>
 
-            <!-- Manager's View -->
             <section id="manager" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl font-semibold mb-2">פאנל ניהול חנות</h2>
@@ -322,7 +307,6 @@
                 </div>
             </section>
 
-            <!-- Admin's View -->
             <section id="admin" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl font-semibold mb-2">פאנל ניהול המפעל (אדמין ראשי)</h2>
@@ -358,12 +342,12 @@
         </main>
     </div>
 
-    <!-- The Image Modal -->
     <div id="image-modal">
         <div id="modal-content" class="p-4">
             <span class="close-button" onclick="closeModal()">&times;</span>
             <img id="modal-image" src="" alt="Enlarged Image">
             <p id="modal-description" class="text-lg font-semibold text-gray-800"></p>
+            <button id="share-button" class="mt-4 px-6 py-2 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition-colors">שתף תמונה</button>
         </div>
     </div>
 
@@ -373,27 +357,42 @@
             const sections = document.querySelectorAll('.content-section');
             let discountsChart, botsChart, usersChart;
             
-            // Image modal elements
             const modal = document.getElementById('image-modal');
             const modalImage = document.getElementById('modal-image');
             const modalDescription = document.getElementById('modal-description');
+            const shareButton = document.getElementById('share-button');
 
-            // Function to open the modal with the specified image and description
             window.openModal = function(imageSrc, description) {
                 modalImage.src = imageSrc;
                 modalDescription.textContent = description;
                 modal.style.display = 'flex';
-            }
 
-            // Function to close the modal
+                shareButton.onclick = function() {
+                    shareImage(imageSrc);
+                };
+            };
+
             window.closeModal = function() {
                 modal.style.display = 'none';
-            }
+            };
             
-            // Close the modal if the user clicks outside of the content
             window.onclick = function(event) {
                 if (event.target == modal) {
                     closeModal();
+                }
+            };
+
+            function shareImage(imageUrl) {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'בואו לראות את הקלף הייחודי הזה!',
+                        text: 'תמונה ייחודית מבית NIFTII',
+                        url: imageUrl
+                    }).then(() => {
+                        console.log('Thanks for sharing!');
+                    }).catch(console.error);
+                } else {
+                    alert("פונקציית השיתוף אינה נתמכת בדפדפן שלך.");
                 }
             }
 
@@ -541,7 +540,6 @@
                 tab.addEventListener('click', () => handleTabClick(tab));
             });
 
-            // Set initial active tab and render its content
             const initialTab = document.querySelector('.tab-btn.active');
             if (initialTab) {
                 handleTabClick(initialTab);
