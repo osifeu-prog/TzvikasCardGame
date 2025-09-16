@@ -1,605 +1,552 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ברוכים הבאים לכרטיס חנות שלי ב NIFTII!! משחק החנויות שמשגע את ישראל!!</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
-    
-        <meta property="og:title" content="המדריך האינטראקטיבי למשחק קלפי האספנות" />
-    <meta property="og:description" content="התחילו את המסע שלכם בעולם קלפי האספנות של טלגרם ופתחו חנות משלכם!" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://osifeu-prog.github.io/Cardgame/" />
-    <meta property="og:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-50987394aba.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="he_IL" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-50987394aba.jpg" />
-    
-    <style>
-        body {
-            font-family: 'Assistant', sans-serif;
-            background-color: #FDFBF8;
-            color: #3a3a3a;
-        }
-        .tab-btn {
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-        .tab-btn.active {
-            border-bottom-color: #4A90E2;
-            color: #4A90E2;
-            font-weight: 700;
-        }
-        .content-section {
-            display: none;
-        }
-        .content-section.active {
-            display: block;
-        }
-        .card {
-            background-color: #FFFFFF;
-            border: 1px solid #EAEAEA;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-        .flowchart-step {
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 1.25rem 0;
-        }
-        .flowchart-step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 23px;
-            top: 75px;
-            height: calc(100% - 60px);
-            width: 2px;
-            background-color: #4A90E2;
-            opacity: 0.3;
-        }
-        .flowchart-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #4A90E2;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-            flex-shrink: 0;
-            z-index: 10;
-        }
-        .chart-container {
-            position: relative; 
-            width: 100%; 
-            max-width: 600px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container { 
-                height: 350px; 
-            }
-        }
-        /* New styles for image modal */
-        #image-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        #modal-content {
-            position: relative;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            max-width: 90%;
-            max-height: 90%;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: center;
-        }
-        #modal-image {
-            max-width: 100%;
-            max-height: 70vh;
-            border-radius: 8px;
-            object-fit: contain;
-        }
-        .close-button {
-            color: #aaa;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .close-button:hover,
-        .close-button:focus {
-            color: #333;
-        }
-        .image-container {
-            position: relative;
-            cursor: pointer;
-        }
-        .share-btn {
-            background-color: #4A90E2;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 9999px; /* Fully rounded */
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .share-btn:hover {
-            background-color: #357ABD;
-            transform: scale(1.05);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ברוכים הבאים לכרטיס חנות שלי ב NIFTII!! משחק החנויות שמשגע את ישראל!!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <meta property="og:title" content="המדריך האינטראקטיבי למשחק קלפי האספנות" />
+    <meta property="og:description" content="התחילו את המסע שלכם בעולם קלפי האספנות של טלגרם ופתחו חנות משלכם!" />
+    <!-- Updated OG Image URL to be an absolute path -->
+    <meta property="og:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
+    <meta property="og:url" content="https://osifeu-prog.github.io/Cardgame/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-509873947aba.jpg" />
+    
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A role-based SPA. Users select a role (Admin, Manager, Collector) via top navigation buttons. The main content area dynamically displays a tailored dashboard/flowchart for that role. This structure was chosen because the source describes distinct user journeys and permission levels, making a role-based view the most intuitive way to understand the entire ecosystem. It simplifies a complex process by allowing users to focus on one perspective at a time. -->
+    <!-- Visualization & Content Choices: 1. Collector Journey: Goal=Organize, Method=Interactive HTML/CSS Flowchart, Interaction=Click to expand details, Justification=Visually guides new users through a multi-step process. 2. Manager Discounts: Goal=Compare, Method=Chart.js Bar Chart, Interaction=Tooltip on hover, Justification=Clearly shows the value proposition of bulk buys. 3. Admin Stats: Goal=Inform, Method=Chart.js Doughnut/Line charts, Interaction=Tooltips, Justification=Provides a quick visual summary of system health, mimicking a real dashboard. All text content is organized into contextual 'cards' within each role's view to simulate an actual application interface. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #FDFBF8;
+            color: #3a3a3a;
+        }
+        .tab-btn {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-btn.active {
+            border-bottom-color: #4A90E2;
+            color: #4A90E2;
+            font-weight: 700;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #EAEAEA;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .flowchart-step {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 1.25rem 0;
+        }
+        .flowchart-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 23px;
+            top: 75px;
+            height: calc(100% - 60px);
+            width: 2px;
+            background-color: #4A90E2;
+            opacity: 0.3;
+        }
+        .flowchart-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4A90E2;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+        .chart-container {
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { 
+                height: 350px; 
+            }
+        }
+        /* New styles for image modal */
+        #image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        #modal-content {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+        #modal-image {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #333;
+        }
+        .image-container {
+            position: relative;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="antialiased">
-    <div class="container mx-auto p-4 sm:p-6 md:p-8">
-        <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">ברוכים הבאים לכרטיס חנות שלי ב NIFTII!! משחק החנויות שמשגע את ישראל!!</h1>
-            <p class="text-lg text-gray-600">המדריך האינטראקטיבי לכל המשתתפים</p>
-        </header>
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">ברוכים הבאים לכרטיס חנות שלי ב NIFTII!! משחק החנויות שמשגע את ישראל!!</h1>
+            <p class="text-lg text-gray-600">המדריך האינטראקטיבי לכל המשתתפים</p>
+        </header>
 
-        <nav class="flex justify-center border-b border-gray-200 mb-8">
-            <button class="tab-btn active text-lg py-3 px-6" data-tab="collector">אספן חדש</button>
-            <button class="tab-btn text-lg py-3 px-6" data-tab="manager">מנהל חנות</button>
-            <button class="tab-btn text-lg py-3 px-6" data-tab="admin">מנהל המפעל</button>
-        </nav>
+        <nav class="flex justify-center border-b border-gray-200 mb-8">
+            <button class="tab-btn active text-lg py-3 px-6" data-tab="collector">אספן חדש</button>
+            <button class="tab-btn text-lg py-3 px-6" data-tab="manager">מנהל חנות</button>
+            <button class="tab-btn text-lg py-3 px-6" data-tab="admin">מנהל המפעל</button>
+        </nav>
 
-        <main>
-            <section id="collector" class="content-section active">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl font-semibold mb-2">ברוכים הבאים לעולם קלפי האספנות!</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">כאן תלמדו איך להתחיל את המסע שלכם, לרכוש את הקלף הראשון, ולהפוך לבעלי חנות קלפים משלכם. עקבו אחר השלבים הבאים:</p>
-                </div>
-                
-                <div class="max-w-2xl mx-auto">
-                    <div class="flowchart-step">
-                        <div class="flowchart-icon">1</div>
-                        <div class="mr-6">
-                            <h3 class="font-bold text-xl text-gray-800">רכישת קלף ברכישה ראשונית.</h3>
-                            <p class="text-gray-600">הכל מתחיל בקישור שתקבלו לחנות הקלפים שלי. בחנות, תתבקשו לבצע רכישה של קלף מיוחד ויחודי רק לכם, NFT, בעלות של 36 ש"ח כדי להתחיל את תהליך האימות.</p>
-                        </div>
-                    </div>
+        <main>
+            <!-- Collector's View -->
+            <section id="collector" class="content-section active">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-semibold mb-2">ברוכים הבאים לעולם קלפי האספנות!</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">כאן תלמדו איך להתחיל את המסע שלכם, לרכוש את הקלף הראשון, ולהפוך לבעלי חנות קלפים משלכם. עקבו אחר השלבים הבאים:</p>
+                </div>
+                
+                <div class="max-w-2xl mx-auto">
+                    <div class="flowchart-step">
+                        <div class="flowchart-icon">1</div>
+                        <div class="mr-6">
+                            <!-- Corrected text based on user's request -->
+                            <h3 class="font-bold text-xl text-gray-800">רכישת קלף ברכישה ראשונית.</h3>
+                            <p class="text-gray-600">הכל מתחיל בקישור שתקבלו לחנות הקלפים שלי. בחנות, תתבקשו לבצע רכישה של קלף מיוחד ויחודי רק לכם, NFT, בעלות של 36 ש"ח כדי להתחיל את תהליך האימות.</p>
+                        </div>
+                    </div>
 
-                    <div class="flowchart-step">
-                        <div class="flowchart-icon">2</div>
-                        <div class="mr-6">
-                            <h3 class="font-bold text-xl text-gray-800">הוכחת תשלום</h3>
-                            <p class="text-gray-600">כדי לאמת את זהותכם, תצטרכו לשלוח צילום מסך של העברת התשלום. הבוט יציג לכם את פרטי החשבון/ארנק המדויקים:</p>
-                            <div class="mt-2 p-4 bg-gray-100 rounded-lg text-sm text-gray-700 space-y-4">
-                                <div class="p-3 bg-white rounded-lg shadow-sm">
-                                    <h4 class="font-bold text-base mb-2">תשלום ב-TON</h4>
-                                    <p class="text-gray-600 text-sm mb-2">
-                                        ניתן להעביר ישירות דרך ארנק הטלגרם שלכם. העברה מתבצעת על רשת TON.
-                                    </p>
-                                    <div class="flex flex-col items-center">
-                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" 
-                                             alt="TON QR Code" 
-                                             class="rounded-lg shadow-md mb-2">
-                                        <div class="break-all text-xs text-gray-500 font-mono text-center">
-                                            UQDhfyUPSJ8x9xnoeccTl55PEny7zUvDW8UabZ7PdDo52noF
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 bg-white rounded-lg shadow-sm">
-                                    <h4 class="font-bold text-base mb-2">העברה בנקאית</h4>
-                                    <strong>שם מוטב:</strong> צביקה קאופמן <br>
-                                    <strong>בנק:</strong> הפועלים (12) <br>
-                                    <strong>סניף:</strong> כפר גנים (153) <br>
-                                    <strong>חשבון:</strong> 73462
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flowchart-step">
-                        <div class="flowchart-icon">3</div>
-                        <div class="mr-6">
-                            <h3 class="font-bold text-xl text-gray-800">המתנה לאישור</h3>
-                            <p class="text-gray-600">הוכחת התשלום שלכם נשלחת במקביל למנהל החנות ולמנהל המערכת הראשי ("מנהל המפעל") כדי לאשר את ההצמדה של הקבלה שלכם לקלף שלכם.</p>
-                        </div>
-                    </div>
-                    <div class="flowchart-step">
-                        <div class="flowchart-icon">4</div>
-                        <div class="mr-6">
-                            <h3 class="font-bold text-xl text-gray-800">קבלת טוקן והפעלת החנות</h3>
-                            <p class="text-gray-600">לאחר האישור, מנהל המפעל ינפיק לכם טוקן ייחודי (NFT) שיוצמד לכקבלה הן לבעל החנות ממנו רכשתם, והן לכם, עם המחיר בו רכשתם והקלף היחודי שרכשתם.</p>
-                        </div>
-                    </div>
-                    <div class="flowchart-step">
-                        <div class="flowchart-icon">5</div>
-                        <div class="mr-6">
-                            <h3 class="font-bold text-xl text-gray-800">הצטרפות לקהילה</h3>
-                            <p class="text-gray-600">לאחר פתיחת החנות, תוכלו לפרסם את הקלף החדש שלכם בקבוצת ה-NFT הקהילתית, להציג את הרכש היחודי החדש שלכם, ולהתחיל לסחור עם חברים ועם הקהילה!</p>
-                            <a href="https://t.me/+HIzvM8sEgh1kNWY0" target="_blank" class="mt-2 inline-block text-blue-600 hover:underline">הצטרפו לקבוצה</a>
-                        </div>
-                    </div>
-                </div>
+                    <div class="flowchart-step">
+                        <div class="flowchart-icon">2</div>
+                        <div class="mr-6">
+                            <h3 class="font-bold text-xl text-gray-800">הוכחת תשלום</h3>
+                            <p class="text-gray-600">כדי לאמת את זהותכם, תצטרכו לשלוח צילום מסך של העברת התשלום. הבוט יציג לכם את פרטי החשבון/ארנק המדויקים:</p>
+                            <div class="mt-2 p-4 bg-gray-100 rounded-lg text-sm text-gray-700 space-y-4">
+                                <div class="p-3 bg-white rounded-lg shadow-sm">
+                                    <h4 class="font-bold text-base mb-2">תשלום ב-TON</h4>
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        ניתן להעביר ישירות דרך ארנק הטלגרם שלכם. העברה מתבצעת על רשת TON.
+                                    </p>
+                                    <div class="flex flex-col items-center">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" 
+                                             alt="TON QR Code" 
+                                             class="rounded-lg shadow-md mb-2">
+                                        <div class="break-all text-xs text-gray-500 font-mono text-center">
+                                            UQDhfyUPSJ8x9xnoeccTl55PEny7zUvDW8UabZ7PdDo52noF
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">
+                                    <h4 class="font-bold text-base mb-2">העברה בנקאית</h4>
+                                    <strong>שם מוטב:</strong> קאופמן צביקה <br>
+                                    <strong>בנק:</strong> בנק הפועלים <br>
+                                    <strong>סניף:</strong> סניף כפר גנים (153) <br>
+                                    <strong>חשבון:</strong> 73462
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flowchart-step">
+                        <div class="flowchart-icon">3</div>
+                        <div class="mr-6">
+                            <!-- Corrected text based on user's request -->
+                            <h3 class="font-bold text-xl text-gray-800">המתנה לאישור</h3>
+                            <p class="text-gray-600">הוכחת התשלום שלכם נשלחת במקביל למנהל החנות ולמנהל המערכת הראשי ("מנהל המפעל") כדי לאשר את ההצמדה של הקבלה שלכם לקלף שלכם.</p>
+                        </div>
+                    </div>
+                    <div class="flowchart-step">
+                        <div class="flowchart-icon">4</div>
+                        <div class="mr-6">
+                            <!-- Corrected text based on user's request -->
+                            <h3 class="font-bold text-xl text-gray-800">קבלת טוקן והפעלת החנות</h3>
+                            <p class="text-gray-600">לאחר האישור, מנהל המפעל ינפיק לכם טוקן ייחודי (NFT) שיוצמד לכקבלה הן לבעל החנות ממנו רכשתם, והן לכם, עם המחיר בו רכשתם והקלף היחודי שרכשתם.</p>
+                        </div>
+                    </div>
+                    <div class="flowchart-step">
+                        <div class="flowchart-icon">5</div>
+                        <div class="mr-6">
+                            <!-- Corrected text based on user's request -->
+                            <h3 class="font-bold text-xl text-gray-800">הצטרפות לקהילה</h3>
+                            <p class="text-gray-600">לאחר פתיחת החנות, תוכלו לפרסם את הקלף החדש שלכם בקבוצת ה-NFT הקהילתית, להציג את הרכש היחודי החדש שלכם, ולהתחיל לסחור עם חברים ועם הקהילה!</p>
+                            <a href="https://t.me/+HIzvM8sEgh1kNWY0" target="_blank" class="mt-2 inline-block text-blue-600 hover:underline">הצטרפו לקבוצה</a>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="card p-6 mt-8 text-center">
-                    <h2 class="text-2xl font-semibold mb-4 text-gray-700">שתפו את העמוד הזה!</h2>
-                    <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-                        עזרו לנו להפיץ את הבשורה! כאשר תשתפו את הקישור הזה, התמונה הבאה תוצג אוטומטית.
-                    </p>
-                    <div class="w-full max-w-md mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-200">
-                        <img src="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-50987394aba.jpg" 
-                             alt="תמונה לשיתוף חברתי" 
-                             class="w-full h-auto object-cover">
-                    </div>
-                    <button id="shareButton" class="share-btn mt-6">שתפו את העמוד</button>
-                    <p id="share-message" class="text-sm mt-4 text-gray-500 hidden">הקישור הועתק ללוח ההדבקה!</p>
-                </div>
-                <div class="card p-6 mt-8">
-                    <h2 class="text-2xl font-semibold mb-4 text-gray-700 text-center">גלריית תמונות ייחודיות לרכישה</h2>
-                    <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">
-                        אלו הן התמונות הייחודיות שתוכלו לרכוש. לאחר אימות התשלום, הן יועברו לבעלותכם, ותוכלו למכור אותן ולהרוויח כסף מהרכישה הראשונה!
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/S1/0533af5c-a0c8-4197-b797-662d1b154012.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="https://osifeu-prog.github.io/Cardgame/S1/0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
-                                alt="תמונה ייחודית 1" 
-                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
-                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">36 ש"ח</div>
-                        </div>
-                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-50987394aba.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="https://osifeu-prog.github.io/Cardgame/S1/b4048d9a-0341-4b7b-84c8-50987394aba.jpg" 
-                                alt="תמונה ייחודית 2" 
-                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
-                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">18 ש"ח</div>
-                        </div>
-                        <div class="image-container" onclick="openModal('https://osifeu-prog.github.io/Cardgame/S1/c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
-                            <img src="https://osifeu-prog.github.io/Cardgame/S1/c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg" 
-                                alt="תמונה ייחודית 3" 
-                                class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
-                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">54 ש"ח</div>
-                        </div>
-                    </div>
-                </div>
+                <!-- New section for unique user images -->
+                <div class="card p-6 mt-8">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-700 text-center">גלריית תמונות ייחודיות לרכישה</h2>
+                    <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">
+                        אלו הן התמונות הייחודיות שתוכלו לרכוש. לאחר אימות התשלום, הן יועברו לבעלותכם, ותוכלו למכור אותן ולהרוויח כסף מהרכישה הראשונה!
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Added price and click functionality to each image -->
+                        <div class="image-container" onclick="openModal('0533af5c-a0c8-4197-b797-662d1b154012.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
+                            <img src="0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
+                                 alt="תמונה ייחודית 1" 
+                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">36 ש"ח</div>
+                        </div>
+                        <div class="image-container" onclick="openModal('b4048d9a-0341-4b7b-84c8-509873947aba.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
+                            <img src="b4048d9a-0341-4b7b-84c8-509873947aba.jpg" 
+                                 alt="תמונה ייחודית 2" 
+                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">18 ש"ח</div>
+                        </div>
+                        <div class="image-container" onclick="openModal('c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
+                            <img src="c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg" 
+                                 alt="תמונה ייחודית 3" 
+                                 class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
+                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">54 ש"ח</div>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-200 mb-8 text-center mt-8 card">
-                    <h2 class="text-2xl font-semibold mb-4 text-gray-700">צור קשר</h2>
-                    <p class="text-sm text-gray-600 mb-4 max-w-lg mx-auto">
-                        לכל שאלה, תמיכה או מידע נוסף, אתם יכולים ליצור איתנו קשר.
-                        <br>
-                        <span class="font-bold text-indigo-700">ניתן לסרוק את קוד ה-QR כדי להגיע לארנק TON.</span>
-                    </p>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" alt="TON QR Code" class="mx-auto rounded-lg shadow-md mb-4">
-                    <ul class="text-gray-700 text-base">
-                        <li class="mb-2"><strong>אימייל:</strong> <a href="mailto:osif.e.u@gmail.com" class="text-blue-600 hover:underline">osif.e.u@gmail.com</a></li>
-                        <li><strong>טלפון:</strong> 0546671882</li>
-                    </ul>
-                </div>
-            </section>
+                <!-- Contact Section with QR - New Section -->
+                <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-200 mb-8 text-center mt-8 card">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-700">צור קשר</h2>
+                    <p class="text-sm text-gray-600 mb-4 max-w-lg mx-auto">
+                        לכל שאלה, תמיכה או מידע נוסף, אתם יכולים ליצור איתנו קשר.
+                        <br>
+                        <span class="font-bold text-indigo-700">ניתן לסרוק את קוד ה-QR כדי להגיע לארנק TON.</span>
+                    </p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ton://transfer/0x435B4d5e6D2Ea19474add911d92f77E8fac1Ac76" alt="TON QR Code" class="mx-auto rounded-lg shadow-md mb-4">
+                    <ul class="text-gray-700 text-base">
+                        <li class="mb-2"><strong>אימייל:</strong>00506861837p@gmail.com</li>
+                        <li><strong>טלפון:</strong> 0506861837</li>
+                    </ul>
+                </div>
+            </section>osif.e.u@gmail.com
 
-            <section id="manager" class="content-section">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl font-semibold mb-2">פאנל ניהול חנות</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">כמנהלי חנות, תקבלו שליטה מלאה על המלאי, המכירות וההגדרות שלכם, כבר מהקלף הראשון. זה יהיה מרכז הבקרה שלכם, למכירת הקלף שלכם ולבירה של נקודות וכספים. .</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="card md:col-span-2 lg:col-span-3">
-                        <h3 class="font-bold text-xl mb-3">ניהול גלריות וקלפים</h3>
-                        <p class="text-gray-600 mb-4">כמנהלי חנות תוכלו ליצור גלריות (קטגוריות) ולהעלות אליהן קלפים (תמונות). ניתן להעלות מספר תמונות במקביל. עבור כל קלף, תוכלו להגדיר כותרת, תיאור ומחיר. כמו כן, ניתן לערוך את כל הפרטים בכל עת.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="font-bold text-xl mb-3">מעקב מכירות ואישורים</h3>
-                        <p class="text-gray-600">כאשר לקוח רוכש מכם קלף, תקבלו הודעה עם הוכחת התשלום שלו. עליכם לבדוק ולאשר את התשלום כדי שהעסקה תושלם והקלף יועבר לבעלותו.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="font-bold text-xl mb-3">הגדרות תשלום</h3>
-                        <p class="text-gray-600">בפאנל הניהול תוכלו להוסיף, לערוך או להסיר את חשבונות הבנק או ארנק הטלגרם שאליהם תרצו לקבל תשלומים מהלקוחות שלכם.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="font-bold text-xl mb-3">פרסום בקהילה</h3>
-                        <p class="text-gray-600">לאחר כל מכירה מוצלחת, תהיה לכם אפשרות לפרסם את דבר המכירה בקבוצת ה-NFT הקהילתית בלחיצת כפתור, כדי לחגוג עם כולם ולהגביר את החשיפה.</p>
-                    </div>
-                    <div class="card md:col-span-2 lg:col-span-3">
-                        <h3 class="font-bold text-xl mb-3">מבצעים והנחות</h3>
-                        <p class="text-gray-600 mb-4">המערכת מעודדת רכישות גדולות ומציעה הנחות אוטומטיות ללקוחותיכם:</p>
-                        <ul class="list-disc list-inside text-gray-600">
-                            <li><strong>10% הנחה</strong> על רכישת גלריה שלמה.</li>
-                            <li><strong>25% הנחה</strong> על רכישת כל הקלפים בחנות.</li>
-                        </ul>
-                        <div class="chart-container mt-4">
-                            <canvas id="discountsChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <!-- Manager's View -->
+            <section id="manager" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-semibold mb-2">פאנל ניהול חנות</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">כמנהלי חנות, תקבלו שליטה מלאה על המלאי, המכירות וההגדרות שלכם, כבר מהקלף הראשון. זה יהיה מרכז הבקרה שלכם, למכירת הקלף שלכם ולבירה של נקודות וכספים. .</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card md:col-span-2 lg:col-span-3">
+                        <h3 class="font-bold text-xl mb-3">ניהול גלריות וקלפים</h3>
+                        <p class="text-gray-600 mb-4">כמנהלי חנות תוכלו ליצור גלריות (קטגוריות) ולהעלות אליהן קלפים (תמונות). ניתן להעלות מספר תמונות במקביל. עבור כל קלף, תוכלו להגדיר כותרת, תיאור ומחיר. כמו כן, ניתן לערוך את כל הפרטים בכל עת.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">מעקב מכירות ואישורים</h3>
+                        <p class="text-gray-600">כאשר לקוח רוכש מכם קלף, תקבלו הודעה עם הוכחת התשלום שלו. עליכם לבדוק ולאשר את התשלום כדי שהעסקה תושלם והקלף יועבר לבעלותו.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">הגדרות תשלום</h3>
+                        <p class="text-gray-600">בפאנל הניהול תוכלו להוסיף, לערוך או להסיר את חשבונות הבנק או ארנק הטלגרם שאליהם תרצו לקבל תשלומים מהלקוחות שלכם.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">פרסום בקהילה</h3>
+                        <p class="text-gray-600">לאחר כל מכירה מוצלחת, תהיה לכם אפשרות לפרסם את דבר המכירה בקבוצת ה-NFT הקהילתית בלחיצת כפתור, כדי לחגוג עם כולם ולהגביר את החשיפה.</p>
+                    </div>
+                    <div class="card md:col-span-2 lg:col-span-3">
+                        <h3 class="font-bold text-xl mb-3">מבצעים והנחות</h3>
+                        <p class="text-gray-600 mb-4">המערכת מעודדת רכישות גדולות ומציעה הנחות אוטומטיות ללקוחותיכם:</p>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li><strong>10% הנחה</strong> על רכישת גלריה שלמה.</li>
+                            <li><strong>25% הנחה</strong> על רכישת כל הקלפים בחנות.</li>
+                        </ul>
+                        <div class="chart-container mt-4">
+                            <canvas id="discountsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <section id="admin" class="content-section">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl font-semibold mb-2">פאנל ניהול המפעל (אדמין ראשי)</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">זהו מרכז השליטה של המערכת כולה. מכאן מנהלים את החנויות, הקבוצות והפיקוח הכללי.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="card">
-                        <h3 class="font-bold text-xl mb-3">אישור חנויות חדשות</h3>
-                        <p class="text-gray-600">כאשר משתמש חדש מסיים את תהליך ההרשמה הראשונית, תקבלו בקשה לאישור. תפקידכם הוא לבדוק את הוכחת התשלום, ובמידה והכל תקין, להנפיק לו טוקן ייחודי דרך BotFactory כדי שיוכל ליצור את החנות שלו.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="font-bold text-xl mb-3">ניהול בוטים וקבוצות</h3>
-                        <p class="text-gray-600">בפאנל הראשי תוכלו לרשום בוטים חדשים, לקטלג אותם (למשל, "בוט חנות" או "בוט תפעולי"), ולשייך אותם לקבוצות הטלגרם הרלוונטיות לצורך פרסומים ועדכונים.</p>
-                    </div>
-                    <div class="card md:col-span-2">
-                        <h3 class="font-bold text-xl mb-3">פיקוח ופרסום בקהילה</h3>
-                        <p class="text-gray-600">הבוט הראשי שלכם הוא הלב של המערכת. הוא מציג משתמשים חדשים שמצטרפים ומאפשר לכם לאשר פרסומים של רכישות חדשות בקבוצת הקהילה. כל פרסום דורש אישור ידני שלכם כדי לשמור על סדר ואיכות.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="font-bold text-xl mb-3">סטטיסטיקות מערכת</h3>
-                        <div class="chart-container">
-                            <canvas id="botsChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="font-bold text-xl mb-3">משתמשים חדשים</h3>
-                        <div class="chart-container">
-                            <canvas id="usersChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
+            <!-- Admin's View -->
+            <section id="admin" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-semibold mb-2">פאנל ניהול המפעל (אדמין ראשי)</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">זהו מרכז השליטה של המערכת כולה. מכאן מנהלים את החנויות, הקבוצות והפיקוח הכללי.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">אישור חנויות חדשות</h3>
+                        <p class="text-gray-600">כאשר משתמש חדש מסיים את תהליך ההרשמה הראשונית, תקבלו בקשה לאישור. תפקידכם הוא לבדוק את הוכחת התשלום, ובמידה והכל תקין, להנפיק לו טוקן ייחודי דרך BotFactory כדי שיוכל ליצור את החנות שלו.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">ניהול בוטים וקבוצות</h3>
+                        <p class="text-gray-600">בפאנל הראשי תוכלו לרשום בוטים חדשים, לקטלג אותם (למשל, "בוט חנות" או "בוט תפעולי"), ולשייך אותם לקבוצות הטלגרם הרלוונטיות לצורך פרסומים ועדכונים.</p>
+                    </div>
+                    <div class="card md:col-span-2">
+                        <h3 class="font-bold text-xl mb-3">פיקוח ופרסום בקהילה</h3>
+                        <p class="text-gray-600">הבוט הראשי שלכם הוא הלב של המערכת. הוא מציג משתמשים חדשים שמצטרפים ומאפשר לכם לאשר פרסומים של רכישות חדשות בקבוצת הקהילה. כל פרסום דורש אישור ידני שלכם כדי לשמור על סדר ואיכות.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">סטטיסטיקות מערכת</h3>
+                        <div class="chart-container">
+                            <canvas id="botsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-xl mb-3">משתמשים חדשים</h3>
+                        <div class="chart-container">
+                            <canvas id="usersChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
-    <div id="image-modal">
-        <div id="modal-content" class="p-4">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <img id="modal-image" src="" alt="Enlarged Image">
-            <p id="modal-description" class="text-lg font-semibold text-gray-800"></p>
-        </div>
-    </div>
+    <!-- The Image Modal -->
+    <div id="image-modal">
+        <div id="modal-content" class="p-4">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="Enlarged Image">
+            <p id="modal-description" class="text-lg font-semibold text-gray-800"></p>
+        </div>
+    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const sections = document.querySelectorAll('.content-section');
-            let discountsChart, botsChart, usersChart;
-            
-            // Image modal elements
-            const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            const modalDescription = document.getElementById('modal-description');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const sections = document.querySelectorAll('.content-section');
+            let discountsChart, botsChart, usersChart;
+            
+            // Image modal elements
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalDescription = document.getElementById('modal-description');
 
-            // Social sharing elements
-            const shareButton = document.getElementById('shareButton');
-            const shareMessage = document.getElementById('share-message');
+            // Function to open the modal with the specified image and description
+            window.openModal = function(imageSrc, description) {
+                modalImage.src = imageSrc;
+                modalDescription.textContent = description;
+                modal.style.display = 'flex';
+            }
 
-            // Function to open the modal with the specified image and description
-            window.openModal = function(imageSrc, description) {
-                modalImage.src = imageSrc;
-                modalDescription.textContent = description;
-                modal.style.display = 'flex';
-            }
+            // Function to close the modal
+            window.closeModal = function() {
+                modal.style.display = 'none';
+            }
+            
+            // Close the modal if the user clicks outside of the content
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            }
 
-            // Function to close the modal
-            window.closeModal = function() {
-                modal.style.display = 'none';
-            }
-            
-            // Close the modal if the user clicks outside of the content
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    closeModal();
-                }
-            }
+            const chartConfigs = {
+                discounts: {
+                    type: 'bar',
+                    data: {
+                        labels: ['קלף בודד', 'גלריה שלמה', 'כל החנות'],
+                        datasets: [{
+                            label: 'אחוז מחיר לתשלום',
+                            data: [100, 90, 75],
+                            backgroundColor: ['#A0AEC0', '#63B3ED', '#48BB78'],
+                            borderColor: ['#718096', '#4299E1', '#38A169'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value + '%'
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.x !== null) {
+                                            label += context.parsed.x + '%';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                bots: {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['חנויות פעילות', 'בוטים תפעוליים'],
+                        datasets: [{
+                            label: 'סוגי בוטים',
+                            data: [12, 3],
+                            backgroundColor: ['#63B3ED', '#4FD1C5'],
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'התפלגות בוטים במערכת'
+                            }
+                        }
+                    }
+                },
+                users: {
+                    type: 'line',
+                    data: {
+                        labels: ['שבוע 1', 'שבוע 2', 'שבוע 3', 'שבוע 4', 'שבוע 5'],
+                        datasets: [{
+                            label: 'מצטרפים חדשים',
+                            data: [3, 5, 4, 8, 10],
+                            fill: false,
+                            borderColor: '#4A90E2',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'מצטרפים חדשים לפי שבוע'
+                            }
+                        }
+                    }
+                }
+            };
+            
+            function renderChart(chartId, config) {
+                const ctx = document.getElementById(chartId).getContext('2d');
+                return new Chart(ctx, config);
+            }
 
-            // Social sharing logic
-            shareButton.addEventListener('click', async () => {
-                const shareData = {
-                    title: document.title,
-                    text: document.querySelector('meta[property="og:description"]').content,
-                    url: window.location.href,
-                };
-                
-                try {
-                    // Use Web Share API if supported
-                    if (navigator.share) {
-                        await navigator.share(shareData);
-                    } else {
-                        // Fallback for browsers that do not support Web Share API
-                        await navigator.clipboard.writeText(shareData.url);
-                        shareMessage.classList.remove('hidden');
-                        setTimeout(() => {
-                            shareMessage.classList.add('hidden');
-                        }, 3000);
-                    }
-                } catch (error) {
-                    // Fallback to clipboard copy on error or no support
-                    try {
-                        await navigator.clipboard.writeText(shareData.url);
-                        shareMessage.classList.remove('hidden');
-                        setTimeout(() => {
-                            shareMessage.classList.add('hidden');
-                        }, 3000);
-                    } catch (err) {
-                        console.error('Copy to clipboard failed:', err);
-                    }
-                }
-            });
+            function destroyCharts() {
+                if (discountsChart) discountsChart.destroy();
+                if (botsChart) botsChart.destroy();
+                if (usersChart) usersChart.destroy();
+            }
 
-            const chartConfigs = {
-                discounts: {
-                    type: 'bar',
-                    data: {
-                        labels: ['קלף בודד', 'גלריה שלמה', 'כל החנות'],
-                        datasets: [{
-                            label: 'אחוז מחיר לתשלום',
-                            data: [100, 90, 75],
-                            backgroundColor: ['#A0AEC0', '#63B3ED', '#48BB78'],
-                            borderColor: ['#718096', '#4299E1', '#38A169'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        indexAxis: 'y',
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                max: 100,
-                                ticks: {
-                                    callback: function(value) {
-                                        return value + '%'
-                                    }
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        if (context.parsed.x !== null) {
-                                            label += context.parsed.x + '%';
-                                        }
-                                        return label;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                bots: {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['חנויות פעילות', 'בוטים תפעוליים'],
-                        datasets: [{
-                            label: 'סוגי בוטים',
-                            data: [12, 3],
-                            backgroundColor: ['#63B3ED', '#4FD1C5'],
-                            hoverOffset: 4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            title: {
-                                display: true,
-                                text: 'התפלגות בוטים במערכת'
-                            }
-                        }
-                    }
-                },
-                users: {
-                    type: 'line',
-                    data: {
-                        labels: ['שבוע 1', 'שבוע 2', 'שבוע 3', 'שבוע 4', 'שבוע 5'],
-                        datasets: [{
-                            label: 'מצטרפים חדשים',
-                            data: [3, 5, 4, 8, 10],
-                            fill: false,
-                            borderColor: '#4A90E2',
-                            tension: 0.1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            title: {
-                                display: true,
-                                text: 'מצטרפים חדשים לפי שבוע'
-                            }
-                        }
-                    }
-                }
-            };
-            
-            function renderChart(chartId, config) {
-                const ctx = document.getElementById(chartId).getContext('2d');
-                return new Chart(ctx, config);
-            }
+            function handleTabClick(tab) {
+                destroyCharts();
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
 
-            function destroyCharts() {
-                if (discountsChart) discountsChart.destroy();
-                if (botsChart) botsChart.destroy();
-                if (usersChart) usersChart.destroy();
-            }
+                const target = tab.getAttribute('data-tab');
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    if (s.id === target) {
+                        s.classList.add('active');
+                    }
+                });
 
-            function handleTabClick(tab) {
-                destroyCharts();
-                
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
+                if (target === 'manager') {
+                    discountsChart = renderChart('discountsChart', chartConfigs.discounts);
+                } else if (target === 'admin') {
+                    botsChart = renderChart('botsChart', chartConfigs.bots);
+                    usersChart = renderChart('usersChart', chartConfigs.users);
+                }
+            }
 
-                const target = tab.getAttribute('data-tab');
-                sections.forEach(s => {
-                    s.classList.remove('active');
-                    if (s.id === target) {
-                        s.classList.add('active');
-                    }
-                });
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => handleTabClick(tab));
+            });
 
-                if (target === 'manager') {
-                    discountsChart = renderChart('discountsChart', chartConfigs.discounts);
-                } else if (target === 'admin') {
-                    botsChart = renderChart('botsChart', chartConfigs.bots);
-                    usersChart = renderChart('usersChart', chartConfigs.users);
-                }
-            }
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => handleTabClick(tab));
-            });
-
-            // Initial chart rendering
-            renderChart('discountsChart', chartConfigs.discounts);
-            renderChart('botsChart', chartConfigs.bots);
-            renderChart('usersChart', chartConfigs.users);
-            
-            handleTabClick(document.querySelector('.tab-btn.active'));
-        });
-    </script>
+            // Set initial active tab and render its content
+            const initialTab = document.querySelector('.tab-btn.active');
+            if (initialTab) {
+                handleTabClick(initialTab);
+            }
+        });
+    </script>
 </body>
 </html>
