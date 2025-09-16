@@ -179,7 +179,7 @@
                         <div class="mr-6">
                             <!-- Corrected text based on user's request -->
                             <h3 class="font-bold text-xl text-gray-800">רכישת קלף ברכישה ראשונית.</h3>
-                            <p class="text-gray-600">הכל מתחיל בקישור שתקבלו לחנות הקלפים שלי. בחנות, תתבקשו לבצע רכישה של קלף מיוחד ויחודי רק לכם, NFT, בעלות של 18 ש"ח כדי להתחיל את תהליך האימות.</p>
+                            <p class="text-gray-600">הכל מתחיל בקישור שתקבלו לחנות הקלפים שלי. בחנות, תתבקשו לבצע רכישה של קלף מיוחד ויחודי רק לכם, NFT, בעלות של 36 ש"ח כדי להתחיל את תהליך האימות.</p>
                         </div>
                     </div>
 
@@ -252,19 +252,19 @@
                             <img src="0533af5c-a0c8-4197-b797-662d1b154012.jpg" 
                                  alt="תמונה ייחודית 1" 
                                  class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
-                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">10 ש"ח</div>
+                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">36 ש"ח</div>
                         </div>
                         <div class="image-container" onclick="openModal('b4048d9a-0341-4b7b-84c8-509873947aba.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
                             <img src="b4048d9a-0341-4b7b-84c8-509873947aba.jpg" 
                                  alt="תמונה ייחודית 2" 
                                  class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
-                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">10 ש"ח</div>
+                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">18 ש"ח</div>
                         </div>
                         <div class="image-container" onclick="openModal('c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg', 'כאן יכול להיות תיאור הקלף שלכם')">
                             <img src="c344fdcb-f0d0-4fd5-a29a-4b619ff6dfb3.jpg" 
                                  alt="תמונה ייחודית 3" 
                                  class="w-full h-auto rounded-xl shadow-md transform transition-transform duration-300 hover:scale-105">
-                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">10 ש"ח</div>
+                            <div class="absolute bottom-4 right-4 bg-white/80 text-gray-800 text-sm px-3 py-1 rounded-full font-bold shadow-md">54 ש"ח</div>
                         </div>
                     </div>
                 </div>
@@ -289,12 +289,12 @@
             <section id="manager" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl font-semibold mb-2">פאנל ניהול חנות</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">כמנהלי חנות, יש לכם שליטה מלאה על המלאי, המכירות וההגדרות. זהו מרכז הבקרה שלכם.</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">כמנהלי חנות, תקבלו שליטה מלאה על המלאי, המכירות וההגדרות שלכם, כבר מהקלף הראשון. זה יהיה מרכז הבקרה שלכם, למכירת הקלף שלכם ולבירה של נקודות וכספים. .</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="card md:col-span-2 lg:col-span-3">
                         <h3 class="font-bold text-xl mb-3">ניהול גלריות וקלפים</h3>
-                        <p class="text-gray-600 mb-4">כאן תוכלו ליצור גלריות (קטגוריות) ולהעלות אליהן קלפים (תמונות). ניתן להעלות מספר תמונות במקביל. עבור כל קלף, תוכלו להגדיר כותרת, תיאור ומחיר. כמו כן, ניתן לערוך את כל הפרטים בכל עת.</p>
+                        <p class="text-gray-600 mb-4">כמנהלי חנות תוכלו ליצור גלריות (קטגוריות) ולהעלות אליהן קלפים (תמונות). ניתן להעלות מספר תמונות במקביל. עבור כל קלף, תוכלו להגדיר כותרת, תיאור ומחיר. כמו כן, ניתן לערוך את כל הפרטים בכל עת.</p>
                     </div>
                     <div class="card">
                         <h3 class="font-bold text-xl mb-3">מעקב מכירות ואישורים</h3>
@@ -540,7 +540,12 @@
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => handleTabClick(tab));
             });
-            
+
+            // Set initial active tab and render its content
+            const initialTab = document.querySelector('.tab-btn.active');
+            if (initialTab) {
+                handleTabClick(initialTab);
+            }
         });
     </script>
 </body>
